@@ -1,0 +1,1 @@
+savedcmd_lib/crypto/built-in.a := rm -f lib/crypto/built-in.a;  printf "lib/crypto/%s " chacha.o blake2s.o blake2s-generic.o blake2s-selftest.o | xargs arm-linux-gnueabihf-ar cDPrST lib/crypto/built-in.a

@@ -1,0 +1,5 @@
+mt6589-fairphone-fp1.o: \
+ arch/arm/boot/dts/mediatek/mt6589-fairphone-fp1.dts \
+ arch/arm/boot/dts/mediatek/mt6589.dtsi \
+ scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/irq.h \
+ scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/arm-gic.h

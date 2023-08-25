@@ -1,0 +1,4 @@
+mt6592-evb.o: arch/arm/boot/dts/mediatek/mt6592-evb.dts \
+ arch/arm/boot/dts/mediatek/mt6592.dtsi \
+ scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/irq.h \
+ scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/arm-gic.h

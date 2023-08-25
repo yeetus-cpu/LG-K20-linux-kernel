@@ -1,0 +1,4 @@
+mt8127-moose.o: arch/arm/boot/dts/mediatek/mt8127-moose.dts \
+ arch/arm/boot/dts/mediatek/mt8127.dtsi \
+ scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/irq.h \
+ scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/arm-gic.h

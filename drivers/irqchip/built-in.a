@@ -1,0 +1,14 @@
+!<thin>
+//                                              90        `
+irqchip.o/
+irq-gic.o/
+irq-gic-common.o/
+irq-mtk-sysirq.o/
+irq-mtk-cirq.o/
+irq-mst-intc.o/
+/0              0           0     0     644     2344      `
+/11             0           0     0     644     12312     `
+/22             0           0     0     644     2092      `
+/40             0           0     0     644     5252      `
+/58             0           0     0     644     5992      `
+/74             0           0     0     644     5176      `

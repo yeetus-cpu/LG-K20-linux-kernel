@@ -1,0 +1,1 @@
+savedcmd_drivers/tty/built-in.a := rm -f drivers/tty/built-in.a;  printf "drivers/tty/%s " vt/built-in.a serial/built-in.a ipwireless/built-in.a | xargs arm-linux-gnueabihf-ar cDPrST drivers/tty/built-in.a

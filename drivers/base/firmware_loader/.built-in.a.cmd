@@ -1,0 +1,1 @@
+savedcmd_drivers/base/firmware_loader/built-in.a := rm -f drivers/base/firmware_loader/built-in.a;  printf "drivers/base/firmware_loader/%s " builtin/built-in.a | xargs arm-linux-gnueabihf-ar cDPrST drivers/base/firmware_loader/built-in.a

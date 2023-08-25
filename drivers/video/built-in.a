@@ -1,0 +1,33 @@
+!<thin>
+//                                              316       `
+aperture.o/
+cmdline.o/
+fbdev/core/fb_notify.o/
+fbdev/core/fbmem.o/
+fbdev/core/fbmon.o/
+fbdev/core/fbcmap.o/
+fbdev/core/fbsysfs.o/
+fbdev/core/modedb.o/
+fbdev/core/fbcvt.o/
+fbdev/core/fb_cmdline.o/
+fbdev/core/fb_io_fops.o/
+fbdev/core/cfbfillrect.o/
+fbdev/core/cfbcopyarea.o/
+fbdev/core/cfbimgblt.o/
+fbdev/simplefb.o/
+
+/0              0           0     0     644     2844      `
+/12             0           0     0     644     2832      `
+/23             0           0     0     644     1692      `
+/47             0           0     0     644     7040      `
+/67             0           0     0     644     1900      `
+/87             0           0     0     644     4960      `
+/108            0           0     0     644     5904      `
+/130            0           0     0     644     9208      `
+/151            0           0     0     644     3412      `
+/171            0           0     0     644     1520      `
+/196            0           0     0     644     2176      `
+/221            0           0     0     644     4028      `
+/247            0           0     0     644     3424      `
+/273            0           0     0     644     3432      `
+/297            0           0     0     644     7888      `

@@ -1,0 +1,178 @@
+# 1 "arch/arm/boot/dts/mediatek/mt6582-prestigio-pmt5008-3g.dts"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "arch/arm/boot/dts/mediatek/mt6582-prestigio-pmt5008-3g.dts"
+
+
+
+
+
+/dts-v1/;
+# 1 "arch/arm/boot/dts/mediatek/mt6582.dtsi" 1
+
+
+
+
+
+# 1 "./scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/irq.h" 1
+# 7 "arch/arm/boot/dts/mediatek/mt6582.dtsi" 2
+# 1 "./scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/arm-gic.h" 1
+# 8 "arch/arm/boot/dts/mediatek/mt6582.dtsi" 2
+
+/ {
+ #address-cells = <1>;
+ #size-cells = <1>;
+ compatible = "mediatek,mt6582";
+ interrupt-parent = <&sysirq>;
+
+ cpus {
+  #address-cells = <1>;
+  #size-cells = <0>;
+
+  cpu@0 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a7";
+   reg = <0x0>;
+  };
+  cpu@1 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a7";
+   reg = <0x1>;
+  };
+  cpu@2 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a7";
+   reg = <0x2>;
+  };
+  cpu@3 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a7";
+   reg = <0x3>;
+  };
+ };
+
+ system_clk: dummy13m {
+  compatible = "fixed-clock";
+  clock-frequency = <13000000>;
+  #clock-cells = <0>;
+ };
+
+ rtc_clk: dummy32k {
+  compatible = "fixed-clock";
+  clock-frequency = <32000>;
+  #clock-cells = <0>;
+ };
+
+ uart_clk: dummy26m {
+  compatible = "fixed-clock";
+  clock-frequency = <26000000>;
+  #clock-cells = <0>;
+ };
+
+ timer: timer@11008000 {
+  compatible = "mediatek,mt6577-timer";
+  reg = <0x10008000 0x80>;
+  interrupts = <0 112 8>;
+  clocks = <&system_clk>, <&rtc_clk>;
+  clock-names = "system-clk", "rtc-clk";
+ };
+
+ sysirq: interrupt-controller@10200100 {
+  compatible = "mediatek,mt6582-sysirq",
+        "mediatek,mt6577-sysirq";
+  interrupt-controller;
+  #interrupt-cells = <3>;
+  interrupt-parent = <&gic>;
+  reg = <0x10200100 0x1c>;
+ };
+
+ gic: interrupt-controller@10211000 {
+  compatible = "arm,cortex-a7-gic";
+  interrupt-controller;
+  #interrupt-cells = <3>;
+  interrupt-parent = <&gic>;
+  reg = <0x10211000 0x1000>,
+        <0x10212000 0x2000>,
+        <0x10214000 0x2000>,
+        <0x10216000 0x2000>;
+ };
+
+ uart0: serial@11002000 {
+  compatible = "mediatek,mt6582-uart",
+        "mediatek,mt6577-uart";
+  reg = <0x11002000 0x400>;
+  interrupts = <0 51 8>;
+  clocks = <&uart_clk>;
+  status = "disabled";
+ };
+
+ uart1: serial@11003000 {
+  compatible = "mediatek,mt6582-uart",
+        "mediatek,mt6577-uart";
+  reg = <0x11003000 0x400>;
+  interrupts = <0 52 8>;
+  clocks = <&uart_clk>;
+  status = "disabled";
+ };
+
+ uart2: serial@11004000 {
+  compatible = "mediatek,mt6582-uart",
+        "mediatek,mt6577-uart";
+  reg = <0x11004000 0x400>;
+  interrupts = <0 53 8>;
+  clocks = <&uart_clk>;
+  status = "disabled";
+ };
+
+ uart3: serial@11005000 {
+  compatible = "mediatek,mt6582-uart",
+        "mediatek,mt6577-uart";
+  reg = <0x11005000 0x400>;
+  interrupts = <0 54 8>;
+  clocks = <&uart_clk>;
+  status = "disabled";
+ };
+
+ watchdog: watchdog@10007000 {
+  compatible = "mediatek,mt6582-wdt",
+        "mediatek,mt6589-wdt";
+  reg = <0x10007000 0x100>;
+ };
+};
+# 8 "arch/arm/boot/dts/mediatek/mt6582-prestigio-pmt5008-3g.dts" 2
+
+/ {
+ model = "Prestigio PMT5008 3G";
+ compatible = "prestigio,pmt5008-3g", "mediatek,mt6582";
+
+ aliases {
+  bootargs = "console=ttyS0,921600n8 earlyprintk";
+  serial0 = &uart0;
+  serial3 = &uart3;
+ };
+
+ chosen {
+  stdout-path = "serial0:921600n8";
+ };
+
+ memory {
+  device_type = "memory";
+  reg = <0x80000000 0x40000000>;
+ };
+};
+
+&uart0 {
+ status = "okay";
+};
+
+&uart1 {
+ status = "okay";
+};
+
+&uart2 {
+ status = "okay";
+};
+
+&uart3 {
+ status = "okay";
+};

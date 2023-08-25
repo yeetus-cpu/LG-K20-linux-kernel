@@ -1,0 +1,163 @@
+# 1 "arch/arm/boot/dts/mediatek/mt6592-evb.dts"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "arch/arm/boot/dts/mediatek/mt6592-evb.dts"
+
+
+
+
+
+
+
+/dts-v1/;
+# 1 "arch/arm/boot/dts/mediatek/mt6592.dtsi" 1
+
+
+
+
+
+
+
+# 1 "./scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/irq.h" 1
+# 9 "arch/arm/boot/dts/mediatek/mt6592.dtsi" 2
+# 1 "./scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/arm-gic.h" 1
+# 10 "arch/arm/boot/dts/mediatek/mt6592.dtsi" 2
+
+/ {
+ #address-cells = <1>;
+ #size-cells = <1>;
+ compatible = "mediatek,mt6592";
+ interrupt-parent = <&sysirq>;
+
+ cpus {
+  #address-cells = <1>;
+  #size-cells = <0>;
+
+  cpu@0 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a7";
+   reg = <0x0>;
+  };
+  cpu@1 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a7";
+   reg = <0x1>;
+  };
+  cpu@2 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a7";
+   reg = <0x2>;
+  };
+  cpu@3 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a7";
+   reg = <0x3>;
+  };
+  cpu@4 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a7";
+   reg = <0x4>;
+  };
+  cpu@5 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a7";
+   reg = <0x5>;
+  };
+  cpu@6 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a7";
+   reg = <0x6>;
+  };
+  cpu@7 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a7";
+   reg = <0x7>;
+  };
+ };
+
+ system_clk: dummy13m {
+  compatible = "fixed-clock";
+  clock-frequency = <13000000>;
+  #clock-cells = <0>;
+ };
+
+ rtc_clk: dummy32k {
+  compatible = "fixed-clock";
+  clock-frequency = <32000>;
+  #clock-cells = <0>;
+ };
+
+ uart_clk: dummy26m {
+  compatible = "fixed-clock";
+  clock-frequency = <26000000>;
+  #clock-cells = <0>;
+ };
+
+ timer: timer@10008000 {
+  compatible = "mediatek,mt6577-timer";
+  reg = <0x10008000 0x80>;
+  interrupts = <0 144 8>;
+  clocks = <&system_clk>, <&rtc_clk>;
+  clock-names = "system-clk", "rtc-clk";
+ };
+
+ sysirq: interrupt-controller@10200220 {
+  compatible = "mediatek,mt6592-sysirq", "mediatek,mt6577-sysirq";
+  interrupt-controller;
+  #interrupt-cells = <3>;
+  interrupt-parent = <&gic>;
+  reg = <0x10200220 0x1c>;
+ };
+
+ gic: interrupt-controller@10211000 {
+  compatible = "arm,cortex-a7-gic";
+  interrupt-controller;
+  #interrupt-cells = <3>;
+  interrupt-parent = <&gic>;
+  reg = <0x10211000 0x1000>,
+        <0x10212000 0x1000>;
+ };
+
+ uart0: serial@11002000 {
+  compatible = "mediatek,mt6577-uart";
+  reg = <0x11002000 0x400>;
+  interrupts = <0 51 8>;
+  clocks = <&uart_clk>;
+  status = "disabled";
+ };
+
+ uart1: serial@11003000 {
+  compatible = "mediatek,mt6577-uart";
+  reg = <0x11003000 0x400>;
+  interrupts = <0 52 8>;
+  clocks = <&uart_clk>;
+  status = "disabled";
+ };
+
+ uart2: serial@11004000 {
+  compatible = "mediatek,mt6577-uart";
+  reg = <0x11004000 0x400>;
+  interrupts = <0 53 8>;
+  clocks = <&uart_clk>;
+  status = "disabled";
+ };
+
+ uart3: serial@11005000 {
+  compatible = "mediatek,mt6577-uart";
+  reg = <0x11005000 0x400>;
+  interrupts = <0 54 8>;
+  clocks = <&uart_clk>;
+  status = "disabled";
+ };
+};
+# 10 "arch/arm/boot/dts/mediatek/mt6592-evb.dts" 2
+
+/ {
+ model = "mt6592 evb";
+ compatible = "mediatek,mt6592-evb", "mediatek,mt6592";
+
+ memory {
+  device_type = "memory";
+  reg = <0x80000000 0x40000000>;
+ };
+};

@@ -1,0 +1,4 @@
+mt6739-lg-k20.o: arch/arm/boot/dts/mediatek/mt6739-lg-k20.dts \
+ arch/arm/boot/dts/mediatek/mt6739.dtsi \
+ scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/irq.h \
+ scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/arm-gic.h

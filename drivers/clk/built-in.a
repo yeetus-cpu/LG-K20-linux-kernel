@@ -1,0 +1,99 @@
+!<thin>
+//                                              1132      `
+clk-devres.o/
+clk-bulk.o/
+clkdev.o/
+clk.o/
+clk-divider.o/
+clk-fixed-factor.o/
+clk-fixed-rate.o/
+clk-gate.o/
+clk-multiplier.o/
+clk-mux.o/
+clk-composite.o/
+clk-fractional-divider.o/
+clk-gpio.o/
+clk-conf.o/
+mediatek/clk-mtk.o/
+mediatek/clk-pll.o/
+mediatek/clk-gate.o/
+mediatek/clk-apmixed.o/
+mediatek/clk-cpumux.o/
+mediatek/reset.o/
+mediatek/clk-mux.o/
+mediatek/clk-fhctl.o/
+mediatek/clk-pllfh.o/
+mediatek/clk-mt6795-apmixedsys.o/
+mediatek/clk-mt6795-infracfg.o/
+mediatek/clk-mt6795-pericfg.o/
+mediatek/clk-mt6795-topckgen.o/
+mediatek/clk-mt6795-mfg.o/
+mediatek/clk-mt6795-mm.o/
+mediatek/clk-mt6795-vdecsys.o/
+mediatek/clk-mt6795-vencsys.o/
+mediatek/clk-mt2701.o/
+mediatek/clk-mt7622-apmixedsys.o/
+mediatek/clk-mt7622.o/
+mediatek/clk-mt7622-infracfg.o/
+mediatek/clk-mt7629.o/
+mediatek/clk-mt7981-apmixed.o/
+mediatek/clk-mt7981-topckgen.o/
+mediatek/clk-mt7981-infracfg.o/
+mediatek/clk-mt7981-eth.o/
+mediatek/clk-mt7986-apmixed.o/
+mediatek/clk-mt7986-topckgen.o/
+mediatek/clk-mt7986-infracfg.o/
+mediatek/clk-mt7986-eth.o/
+mediatek/clk-mt8135-apmixedsys.o/
+mediatek/clk-mt8135.o/
+mediatek/clk-mt8516-apmixedsys.o/
+mediatek/clk-mt8516.o/
+
+/0              0           0     0     644     4448      `
+/14             0           0     0     644     3008      `
+/26             0           0     0     644     4736      `
+/36             0           0     0     644     31312     `
+/43             0           0     0     644     7632      `
+/58             0           0     0     644     6844      `
+/78             0           0     0     644     5764      `
+/96             0           0     0     644     3540      `
+/108            0           0     0     644     2348      `
+/126            0           0     0     644     4072      `
+/137            0           0     0     644     5556      `
+/154            0           0     0     644     3728      `
+/180            0           0     0     644     5132      `
+/192            0           0     0     644     2556      `
+/204            0           0     0     644     7464      `
+/224            0           0     0     644     5680      `
+/244            0           0     0     644     4292      `
+/265            0           0     0     644     2644      `
+/289            0           0     0     644     2816      `
+/312            0           0     0     644     3284      `
+/330            0           0     0     644     4108      `
+/350            0           0     0     644     3876      `
+/372            0           0     0     644     4112      `
+/394            0           0     0     644     6956      `
+/428            0           0     0     644     6472      `
+/460            0           0     0     644     7704      `
+/491            0           0     0     644     15184     `
+/523            0           0     0     644     4012      `
+/550            0           0     0     644     6524      `
+/576            0           0     0     644     3956      `
+/607            0           0     0     644     4044      `
+/638            0           0     0     644     26440     `
+/661            0           0     0     644     5980      `
+/695            0           0     0     644     15084     `
+/718            0           0     0     644     5708      `
+/750            0           0     0     644     17028     `
+/773            0           0     0     644     4316      `
+/804            0           0     0     644     12552     `
+/836            0           0     0     644     9212      `
+/868            0           0     0     644     5428      `
+/895            0           0     0     644     4316      `
+/926            0           0     0     644     10344     `
+/958            0           0     0     644     8816      `
+/990            0           0     0     644     5476      `
+/1017           0           0     0     644     5540      `
+/1051           0           0     0     644     17108     `
+/1074           0           0     0     644     4352      `
+/1108           0           0     0     644     19616     `

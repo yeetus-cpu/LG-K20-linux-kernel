@@ -1,0 +1,1 @@
+savedcmd_drivers/iommu/built-in.a := rm -f drivers/iommu/built-in.a;  printf "drivers/iommu/%s " amd/built-in.a intel/built-in.a arm/built-in.a iommufd/built-in.a | xargs arm-linux-gnueabihf-ar cDPrST drivers/iommu/built-in.a

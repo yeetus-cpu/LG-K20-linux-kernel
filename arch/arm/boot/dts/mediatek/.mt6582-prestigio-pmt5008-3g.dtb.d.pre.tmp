@@ -1,0 +1,5 @@
+mt6582-prestigio-pmt5008-3g.o: \
+ arch/arm/boot/dts/mediatek/mt6582-prestigio-pmt5008-3g.dts \
+ arch/arm/boot/dts/mediatek/mt6582.dtsi \
+ scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/irq.h \
+ scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/arm-gic.h

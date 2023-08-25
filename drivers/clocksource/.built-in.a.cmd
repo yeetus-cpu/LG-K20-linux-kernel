@@ -1,0 +1,1 @@
+savedcmd_drivers/clocksource/built-in.a := rm -f drivers/clocksource/built-in.a;  printf "drivers/clocksource/%s " timer-of.o timer-probe.o mmio.o timer-mediatek.o timer-mediatek-cpux.o arm_arch_timer.o | xargs arm-linux-gnueabihf-ar cDPrST drivers/clocksource/built-in.a

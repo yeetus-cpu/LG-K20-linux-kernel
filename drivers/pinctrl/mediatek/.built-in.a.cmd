@@ -1,0 +1,1 @@
+savedcmd_drivers/pinctrl/mediatek/built-in.a := rm -f drivers/pinctrl/mediatek/built-in.a;  printf "drivers/pinctrl/mediatek/%s " mtk-eint.o pinctrl-mtk-common.o pinctrl-mtk-common-v2.o pinctrl-moore.o pinctrl-mt2701.o pinctrl-mt8135.o pinctrl-mt8127.o pinctrl-mt7623.o pinctrl-mt7629.o | xargs arm-linux-gnueabihf-ar cDPrST drivers/pinctrl/mediatek/built-in.a

@@ -1,0 +1,1 @@
+-Wl,-Bsymbolic-functions -lncursesw -ltinfo

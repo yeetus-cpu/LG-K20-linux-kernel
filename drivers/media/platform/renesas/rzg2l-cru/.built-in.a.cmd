@@ -1,0 +1,1 @@
+savedcmd_drivers/media/platform/renesas/rzg2l-cru/built-in.a := rm -f drivers/media/platform/renesas/rzg2l-cru/built-in.a;  arm-linux-gnueabihf-ar cDPrST drivers/media/platform/renesas/rzg2l-cru/built-in.a

@@ -1,0 +1,465 @@
+# 1 "arch/arm/boot/dts/mediatek/mt8135-evbp1.dts"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "arch/arm/boot/dts/mediatek/mt8135-evbp1.dts"
+
+
+
+
+
+
+
+/dts-v1/;
+# 1 "arch/arm/boot/dts/mediatek/mt8135.dtsi" 1
+
+
+
+
+
+
+
+# 1 "./scripts/dtc/include-prefixes/dt-bindings/clock/mt8135-clk.h" 1
+# 9 "arch/arm/boot/dts/mediatek/mt8135.dtsi" 2
+# 1 "./scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/irq.h" 1
+# 10 "arch/arm/boot/dts/mediatek/mt8135.dtsi" 2
+# 1 "./scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/arm-gic.h" 1
+# 11 "arch/arm/boot/dts/mediatek/mt8135.dtsi" 2
+# 1 "./scripts/dtc/include-prefixes/dt-bindings/reset/mt8135-resets.h" 1
+# 12 "arch/arm/boot/dts/mediatek/mt8135.dtsi" 2
+# 1 "./scripts/dtc/include-prefixes/dt-bindings/pinctrl/mt8135-pinfunc.h" 1
+# 10 "./scripts/dtc/include-prefixes/dt-bindings/pinctrl/mt8135-pinfunc.h"
+# 1 "./scripts/dtc/include-prefixes/dt-bindings/pinctrl/mt65xx.h" 1
+# 11 "./scripts/dtc/include-prefixes/dt-bindings/pinctrl/mt8135-pinfunc.h" 2
+# 13 "arch/arm/boot/dts/mediatek/mt8135.dtsi" 2
+
+/ {
+ #address-cells = <2>;
+ #size-cells = <2>;
+ compatible = "mediatek,mt8135";
+ interrupt-parent = <&sysirq>;
+
+ cpu-map {
+  cluster0 {
+   core0 {
+    cpu = <&cpu0>;
+   };
+   core1 {
+    cpu = <&cpu1>;
+   };
+  };
+
+  cluster1 {
+   core0 {
+    cpu = <&cpu2>;
+   };
+   core1 {
+    cpu = <&cpu3>;
+   };
+  };
+ };
+
+ cpus {
+  #address-cells = <1>;
+  #size-cells = <0>;
+  enable-method = "mediatek,mt81xx-tz-smp";
+
+  cpu0: cpu@0 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a7";
+   reg = <0x000>;
+  };
+
+  cpu1: cpu@1 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a7";
+   reg = <0x001>;
+  };
+
+  cpu2: cpu@100 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a15";
+   reg = <0x100>;
+  };
+
+  cpu3: cpu@101 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a15";
+   reg = <0x101>;
+  };
+ };
+
+ reserved-memory {
+  #address-cells = <2>;
+  #size-cells = <2>;
+  ranges;
+
+  trustzone-bootinfo@80002000 {
+   compatible = "mediatek,trustzone-bootinfo";
+   reg = <0 0x80002000 0 0x1000>;
+  };
+ };
+
+ clocks {
+  #address-cells = <2>;
+  #size-cells = <2>;
+  compatible = "simple-bus";
+  ranges;
+
+  system_clk: dummy13m {
+   compatible = "fixed-clock";
+   clock-frequency = <13000000>;
+   #clock-cells = <0>;
+  };
+
+  rtc_clk: dummy32k {
+   compatible = "fixed-clock";
+   clock-frequency = <32000>;
+   #clock-cells = <0>;
+  };
+
+  clk26m: clk26m {
+   compatible = "fixed-clock";
+   #clock-cells = <0>;
+   clock-frequency = <26000000>;
+  };
+ };
+
+ timer {
+  compatible = "arm,armv7-timer";
+  interrupt-parent = <&gic>;
+  interrupts = <1 13 ((((1 << (4)) - 1) << 8) |
+       8)>,
+        <1 14 ((((1 << (4)) - 1) << 8) |
+       8)>,
+        <1 11 ((((1 << (4)) - 1) << 8) |
+       8)>,
+        <1 10 ((((1 << (4)) - 1) << 8) |
+       8)>;
+  clock-frequency = <13000000>;
+  arm,cpu-registers-not-fw-configured;
+ };
+
+ soc {
+  #address-cells = <2>;
+  #size-cells = <2>;
+  compatible = "simple-bus";
+  ranges;
+
+  topckgen: topckgen@10000000 {
+   compatible = "mediatek,mt8135-topckgen";
+   reg = <0 0x10000000 0 0x1000>;
+   #clock-cells = <1>;
+  };
+
+  infracfg: infracfg@10001000 {
+   #reset-cells = <1>;
+   #clock-cells = <1>;
+   compatible = "mediatek,mt8135-infracfg", "syscon";
+   reg = <0 0x10001000 0 0x1000>;
+  };
+
+  pericfg: pericfg@10003000 {
+   #reset-cells = <1>;
+   #clock-cells = <1>;
+   compatible = "mediatek,mt8135-pericfg", "syscon";
+   reg = <0 0x10003000 0 0x1000>;
+  };
+
+
+
+
+
+  pio: pinctrl@10005000 {
+   compatible = "mediatek,mt8135-pinctrl";
+   reg = <0 0x1000b000 0 0x1000>;
+   mediatek,pctl-regmap = <&syscfg_pctl_a &syscfg_pctl_b>;
+   gpio-controller;
+   #gpio-cells = <2>;
+   interrupt-controller;
+   #interrupt-cells = <2>;
+   interrupts = <0 116 4>,
+         <0 117 4>,
+         <0 118 4>;
+  };
+
+  syscfg_pctl_a: syscfg_pctl_a@10005000 {
+   compatible = "mediatek,mt8135-pctl-a-syscfg", "syscon";
+   reg = <0 0x10005000 0 0x1000>;
+  };
+
+  timer: timer@10008000 {
+   compatible = "mediatek,mt8135-timer",
+     "mediatek,mt6577-timer";
+   reg = <0 0x10008000 0 0x80>;
+   interrupts = <0 113 8>;
+   clocks = <&system_clk>, <&rtc_clk>;
+   clock-names = "system-clk", "rtc-clk";
+  };
+
+  pwrap: pwrap@1000f000 {
+   compatible = "mediatek,mt8135-pwrap";
+   reg = <0 0x1000f000 0 0x1000>,
+    <0 0x11017000 0 0x1000>;
+   reg-names = "pwrap", "pwrap-bridge";
+   interrupts = <0 128 4>;
+   resets = <&infracfg 7>,
+     <&pericfg 34>;
+   reset-names = "pwrap", "pwrap-bridge";
+   clocks = <&clk26m>, <&clk26m>;
+   clock-names = "spi", "wrap";
+  };
+
+  sysirq: interrupt-controller@10200030 {
+   compatible = "mediatek,mt8135-sysirq",
+         "mediatek,mt6577-sysirq";
+   interrupt-controller;
+   #interrupt-cells = <3>;
+   interrupt-parent = <&gic>;
+   reg = <0 0x10200030 0 0x1c>;
+  };
+
+  apmixedsys: apmixedsys@10209000 {
+   compatible = "mediatek,mt8135-apmixedsys";
+   reg = <0 0x10209000 0 0x1000>;
+   #clock-cells = <1>;
+  };
+
+  syscfg_pctl_b: syscfg_pctl_b@1020c000 {
+   compatible = "mediatek,mt8135-pctl-b-syscfg", "syscon";
+   reg = <0 0x1020c000 0 0x1000>;
+  };
+
+  gic: interrupt-controller@10211000 {
+   compatible = "arm,cortex-a15-gic";
+   interrupt-controller;
+   #interrupt-cells = <3>;
+   interrupt-parent = <&gic>;
+   reg = <0 0x10211000 0 0x1000>,
+         <0 0x10212000 0 0x2000>,
+         <0 0x10214000 0 0x2000>,
+         <0 0x10216000 0 0x2000>;
+  };
+
+  uart0: serial@11006000 {
+   compatible = "mediatek,mt8135-uart","mediatek,mt6577-uart";
+   reg = <0 0x11006000 0 0x400>;
+   interrupts = <0 51 8>;
+   clocks = <&pericfg 42>, <&pericfg 10>;
+   clock-names = "baud", "bus";
+   status = "disabled";
+  };
+
+  uart1: serial@11007000 {
+   compatible = "mediatek,mt8135-uart","mediatek,mt6577-uart";
+   reg = <0 0x11007000 0 0x400>;
+   interrupts = <0 52 8>;
+   clocks = <&pericfg 43>, <&pericfg 9>;
+   clock-names = "baud", "bus";
+   status = "disabled";
+  };
+
+  uart2: serial@11008000 {
+   compatible = "mediatek,mt8135-uart","mediatek,mt6577-uart";
+   reg = <0 0x11008000 0 0x400>;
+   interrupts = <0 53 8>;
+   clocks = <&pericfg 44>, <&pericfg 8>;
+   clock-names = "baud", "bus";
+   status = "disabled";
+  };
+
+  uart3: serial@11009000 {
+   compatible = "mediatek,mt8135-uart","mediatek,mt6577-uart";
+   reg = <0 0x11009000 0 0x400>;
+   interrupts = <0 54 8>;
+   clocks = <&pericfg 45>, <&pericfg 7>;
+   clock-names = "baud", "bus";
+   status = "disabled";
+  };
+
+ };
+};
+# 10 "arch/arm/boot/dts/mediatek/mt8135-evbp1.dts" 2
+
+/ {
+ model = "MediaTek MT8135 evaluation board";
+ compatible = "mediatek,mt8135-evbp1", "mediatek,mt8135";
+
+ memory {
+  device_type = "memory";
+  reg = <0 0x80000000 0 0x40000000>;
+ };
+};
+
+&pwrap {
+ pmic: mt6397 {
+  compatible = "mediatek,mt6397";
+
+  mt6397regulator: mt6397regulator {
+   compatible = "mediatek,mt6397-regulator";
+
+   mt6397_vpca15_reg: buck_vpca15 {
+    regulator-name = "vpca15";
+    regulator-min-microvolt = < 850000>;
+    regulator-max-microvolt = <1350000>;
+    regulator-ramp-delay = <12500>;
+    regulator-always-on;
+   };
+
+   mt6397_vpca7_reg: buck_vpca7 {
+    regulator-name = "vpca7";
+    regulator-min-microvolt = < 850000>;
+    regulator-max-microvolt = <1350000>;
+    regulator-ramp-delay = <12500>;
+    regulator-always-on;
+   };
+
+   mt6397_vsramca15_reg: buck_vsramca15 {
+    regulator-name = "vsramca15";
+    regulator-min-microvolt = < 850000>;
+    regulator-max-microvolt = <1350000>;
+    regulator-ramp-delay = <12500>;
+    regulator-always-on;
+   };
+
+   mt6397_vsramca7_reg: buck_vsramca7 {
+    regulator-name = "vsramca7";
+    regulator-min-microvolt = < 850000>;
+    regulator-max-microvolt = <1350000>;
+    regulator-ramp-delay = <12500>;
+    regulator-always-on;
+   };
+
+   mt6397_vcore_reg: buck_vcore {
+    regulator-name = "vcore";
+    regulator-min-microvolt = < 850000>;
+    regulator-max-microvolt = <1350000>;
+    regulator-ramp-delay = <12500>;
+    regulator-always-on;
+   };
+
+   mt6397_vgpu_reg: buck_vgpu {
+    regulator-name = "vgpu";
+    regulator-min-microvolt = < 700000>;
+    regulator-max-microvolt = <1350000>;
+    regulator-ramp-delay = <12500>;
+    regulator-enable-ramp-delay = <115>;
+   };
+
+   mt6397_vdrm_reg: buck_vdrm {
+    regulator-name = "vdrm";
+    regulator-min-microvolt = <1200000>;
+    regulator-max-microvolt = <1400000>;
+    regulator-ramp-delay = <12500>;
+    regulator-always-on;
+   };
+
+   mt6397_vio18_reg: buck_vio18 {
+    regulator-name = "vio18";
+    regulator-min-microvolt = <1620000>;
+    regulator-max-microvolt = <1980000>;
+    regulator-ramp-delay = <12500>;
+    regulator-always-on;
+   };
+
+   mt6397_vtcxo_reg: ldo_vtcxo {
+    regulator-name = "vtcxo";
+    regulator-always-on;
+   };
+
+   mt6397_va28_reg: ldo_va28 {
+    regulator-name = "va28";
+    regulator-always-on;
+   };
+
+   mt6397_vcama_reg: ldo_vcama {
+    regulator-name = "vcama";
+    regulator-min-microvolt = <1500000>;
+    regulator-max-microvolt = <2800000>;
+    regulator-enable-ramp-delay = <218>;
+   };
+
+   mt6397_vio28_reg: ldo_vio28 {
+    regulator-name = "vio28";
+    regulator-always-on;
+   };
+
+   mt6397_vusb_reg: ldo_vusb {
+    regulator-name = "vusb";
+   };
+
+   mt6397_vmc_reg: ldo_vmc {
+    regulator-name = "vmc";
+    regulator-min-microvolt = <1800000>;
+    regulator-max-microvolt = <3300000>;
+    regulator-enable-ramp-delay = <218>;
+   };
+
+   mt6397_vmch_reg: ldo_vmch {
+    regulator-name = "vmch";
+    regulator-min-microvolt = <3000000>;
+    regulator-max-microvolt = <3300000>;
+    regulator-enable-ramp-delay = <218>;
+   };
+
+   mt6397_vemc_3v3_reg: ldo_vemc3v3 {
+    regulator-name = "vemc_3v3";
+    regulator-min-microvolt = <3000000>;
+    regulator-max-microvolt = <3300000>;
+    regulator-enable-ramp-delay = <218>;
+   };
+
+   mt6397_vgp1_reg: ldo_vgp1 {
+    regulator-name = "vcamd";
+    regulator-min-microvolt = <1220000>;
+    regulator-max-microvolt = <3300000>;
+    regulator-enable-ramp-delay = <240>;
+   };
+
+   mt6397_vgp2_reg: ldo_vgp2 {
+    regulator-name = "vcamio";
+    regulator-min-microvolt = <1000000>;
+    regulator-max-microvolt = <3300000>;
+    regulator-enable-ramp-delay = <218>;
+   };
+
+   mt6397_vgp3_reg: ldo_vgp3 {
+    regulator-name = "vcamaf";
+    regulator-min-microvolt = <1200000>;
+    regulator-max-microvolt = <3300000>;
+    regulator-enable-ramp-delay = <218>;
+   };
+
+   mt6397_vgp4_reg: ldo_vgp4 {
+    regulator-name = "vgp4";
+    regulator-min-microvolt = <1200000>;
+    regulator-max-microvolt = <3300000>;
+    regulator-enable-ramp-delay = <218>;
+   };
+
+   mt6397_vgp5_reg: ldo_vgp5 {
+    regulator-name = "vgp5";
+    regulator-min-microvolt = <1200000>;
+    regulator-max-microvolt = <3000000>;
+    regulator-enable-ramp-delay = <218>;
+   };
+
+   mt6397_vgp6_reg: ldo_vgp6 {
+    regulator-name = "vgp6";
+    regulator-min-microvolt = <1200000>;
+    regulator-max-microvolt = <3300000>;
+    regulator-enable-ramp-delay = <218>;
+   };
+
+   mt6397_vibr_reg: ldo_vibr {
+    regulator-name = "vibr";
+    regulator-min-microvolt = <1300000>;
+    regulator-max-microvolt = <3300000>;
+    regulator-enable-ramp-delay = <218>;
+   };
+  };
+ };
+};
+
+&uart3 {
+ status = "okay";
+};

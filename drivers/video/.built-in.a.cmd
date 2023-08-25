@@ -1,0 +1,1 @@
+savedcmd_drivers/video/built-in.a := rm -f drivers/video/built-in.a;  printf "drivers/video/%s " aperture.o cmdline.o backlight/built-in.a fbdev/built-in.a | xargs arm-linux-gnueabihf-ar cDPrST drivers/video/built-in.a

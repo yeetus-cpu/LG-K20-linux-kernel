@@ -1,0 +1,8 @@
+mt8135-evbp1.o: arch/arm/boot/dts/mediatek/mt8135-evbp1.dts \
+ arch/arm/boot/dts/mediatek/mt8135.dtsi \
+ scripts/dtc/include-prefixes/dt-bindings/clock/mt8135-clk.h \
+ scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/irq.h \
+ scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/arm-gic.h \
+ scripts/dtc/include-prefixes/dt-bindings/reset/mt8135-resets.h \
+ scripts/dtc/include-prefixes/dt-bindings/pinctrl/mt8135-pinfunc.h \
+ scripts/dtc/include-prefixes/dt-bindings/pinctrl/mt65xx.h

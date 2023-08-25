@@ -1,0 +1,71 @@
+!<thin>
+//                                              622       `
+clk-mtk.o/
+clk-pll.o/
+clk-gate.o/
+clk-apmixed.o/
+clk-cpumux.o/
+reset.o/
+clk-mux.o/
+clk-fhctl.o/
+clk-pllfh.o/
+clk-mt6795-apmixedsys.o/
+clk-mt6795-infracfg.o/
+clk-mt6795-pericfg.o/
+clk-mt6795-topckgen.o/
+clk-mt6795-mfg.o/
+clk-mt6795-mm.o/
+clk-mt6795-vdecsys.o/
+clk-mt6795-vencsys.o/
+clk-mt2701.o/
+clk-mt7622-apmixedsys.o/
+clk-mt7622.o/
+clk-mt7622-infracfg.o/
+clk-mt7629.o/
+clk-mt7981-apmixed.o/
+clk-mt7981-topckgen.o/
+clk-mt7981-infracfg.o/
+clk-mt7981-eth.o/
+clk-mt7986-apmixed.o/
+clk-mt7986-topckgen.o/
+clk-mt7986-infracfg.o/
+clk-mt7986-eth.o/
+clk-mt8135-apmixedsys.o/
+clk-mt8135.o/
+clk-mt8516-apmixedsys.o/
+clk-mt8516.o/
+
+/0              0           0     0     644     7464      `
+/11             0           0     0     644     5680      `
+/22             0           0     0     644     4292      `
+/34             0           0     0     644     2644      `
+/49             0           0     0     644     2816      `
+/63             0           0     0     644     3284      `
+/72             0           0     0     644     4108      `
+/83             0           0     0     644     3876      `
+/96             0           0     0     644     4112      `
+/109            0           0     0     644     6956      `
+/134            0           0     0     644     6472      `
+/157            0           0     0     644     7704      `
+/179            0           0     0     644     15184     `
+/202            0           0     0     644     4012      `
+/220            0           0     0     644     6524      `
+/237            0           0     0     644     3956      `
+/259            0           0     0     644     4044      `
+/281            0           0     0     644     26440     `
+/295            0           0     0     644     5980      `
+/320            0           0     0     644     15084     `
+/334            0           0     0     644     5708      `
+/357            0           0     0     644     17028     `
+/371            0           0     0     644     4316      `
+/393            0           0     0     644     12552     `
+/416            0           0     0     644     9212      `
+/439            0           0     0     644     5428      `
+/457            0           0     0     644     4316      `
+/479            0           0     0     644     10344     `
+/502            0           0     0     644     8816      `
+/525            0           0     0     644     5476      `
+/543            0           0     0     644     5540      `
+/568            0           0     0     644     17108     `
+/582            0           0     0     644     4352      `
+/607            0           0     0     644     19616     `

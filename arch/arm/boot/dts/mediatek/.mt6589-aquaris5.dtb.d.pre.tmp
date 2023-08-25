@@ -1,0 +1,4 @@
+mt6589-aquaris5.o: arch/arm/boot/dts/mediatek/mt6589-aquaris5.dts \
+ arch/arm/boot/dts/mediatek/mt6589.dtsi \
+ scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/irq.h \
+ scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/arm-gic.h

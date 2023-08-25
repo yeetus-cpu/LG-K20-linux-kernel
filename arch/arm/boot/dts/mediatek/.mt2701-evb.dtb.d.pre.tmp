@@ -1,0 +1,12 @@
+mt2701-evb.o: arch/arm/boot/dts/mediatek/mt2701-evb.dts \
+ scripts/dtc/include-prefixes/dt-bindings/gpio/gpio.h \
+ arch/arm/boot/dts/mediatek/mt2701.dtsi \
+ scripts/dtc/include-prefixes/dt-bindings/clock/mt2701-clk.h \
+ scripts/dtc/include-prefixes/dt-bindings/phy/phy.h \
+ scripts/dtc/include-prefixes/dt-bindings/power/mt2701-power.h \
+ scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/irq.h \
+ scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/arm-gic.h \
+ scripts/dtc/include-prefixes/dt-bindings/memory/mt2701-larb-port.h \
+ scripts/dtc/include-prefixes/dt-bindings/reset/mt2701-resets.h \
+ arch/arm/boot/dts/mediatek/mt2701-pinfunc.h \
+ scripts/dtc/include-prefixes/dt-bindings/pinctrl/mt65xx.h

@@ -1,0 +1,1 @@
+savedcmd_drivers/gpio/built-in.a := rm -f drivers/gpio/built-in.a;  printf "drivers/gpio/%s " gpiolib.o gpiolib-devres.o gpiolib-legacy.o gpiolib-of.o gpiolib-cdev.o gpiolib-swnode.o | xargs arm-linux-gnueabihf-ar cDPrST drivers/gpio/built-in.a

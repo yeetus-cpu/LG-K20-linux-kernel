@@ -1,0 +1,1 @@
+savedcmd_drivers/media/platform/st/sti/c8sectpfe/built-in.a := rm -f drivers/media/platform/st/sti/c8sectpfe/built-in.a;  arm-linux-gnueabihf-ar cDPrST drivers/media/platform/st/sti/c8sectpfe/built-in.a
