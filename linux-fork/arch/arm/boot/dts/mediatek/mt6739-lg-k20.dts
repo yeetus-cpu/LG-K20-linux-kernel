@@ -1,0 +1,34 @@
+//Device tree for LG K20, based on MT6739 SoC.
+
+/dts-v1/;
+#include "mt6739.dtsi"
+
+/ {
+    model = "LG K20";
+    compatible = "lg,k20", "mediatek,mt6739";
+
+    memory {
+        device_type = "memory";
+        reg = <0x00 0x40000000 0x00 0x40000000>;
+    };
+
+    chosen {
+		bootargs = "earlycon=tty0 console=tty0";
+
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+
+		stdout-path = "framebuffer0";
+
+        framebuffer0: framebuffer@9d400000 {
+			compatible = "simple-framebuffer";
+			reg = <0 0x764b0000 0 (960 * 480 * 4)>;
+			width = <480>;
+			height = <960>;
+			stride = <(480 * 4)>;
+			format = "a8r8g8b8";
+			status= "okay";
+		};
+    };
+};
